@@ -7,7 +7,7 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: []
+            todos: <div>Cargando...</div>
         }
         this.handleDelete = this.handleDelete.bind(this);
         this.fetchData = this.fetchData.bind(this);

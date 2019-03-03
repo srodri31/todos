@@ -40,6 +40,7 @@ class EditableText extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input value={this.state.value} onChange={this.handleChange}></input>
                     <input type="submit" value="Guardar"></input>
+                    <Button onClick={this.changeStatus} text="Cancelar" />
                 </form>
             );
         } else {
