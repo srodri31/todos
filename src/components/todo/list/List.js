@@ -9,17 +9,13 @@ class List extends Component {
         this.state = {
             todos: <div>Cargando...</div>
         }
-        this.handleDelete = this.handleDelete.bind(this);
-        this.fetchData = this.fetchData.bind(this);
-        this.handleAdd = this.handleAdd.bind(this);
-        this.updateItem = this.updateItem.bind(this);
     }
 
     componentWillMount(){
         this.fetchData();
     }
 
-    fetchData(){
+    fetchData = () => {
         fetch("http://todos-api-v1.herokuapp.com/todos")
         .then( results => {
             console.log(results);
@@ -46,7 +42,7 @@ class List extends Component {
         })
     }
 
-    updateItem(id, params){
+    updateItem = (id, params) => {
         let body = { title: params.value};
         fetch("http://todos-api-v1.herokuapp.com/todos/"+id, {
             method: 'PUT',
@@ -62,7 +58,7 @@ class List extends Component {
         })
     }
 
-    handleDelete(id){
+    handleDelete = (id) => {
         let confirmation = window.confirm("¿Estás seguro de eliminar este elemento?");
         if(confirmation) {
             fetch("http://todos-api-v1.herokuapp.com/todos/"+id, {
@@ -76,7 +72,7 @@ class List extends Component {
         }
     }
 
-    handleAdd(item) {
+    handleAdd = (item) => {
         let body = { title: item.value, created_by: "4"};
         console.log(body);
         fetch("http://todos-api-v1.herokuapp.com/todos/", {

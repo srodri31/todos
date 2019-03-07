@@ -8,24 +8,21 @@ class EditableText extends Component {
             isEditable: false,
             value: this.props.text
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.changeStatus = this.changeStatus.bind(this);
     }
 
-    changeStatus() {
+    changeStatus = () => {
         this.setState({
             isEditable: !this.state.isEditable
         })
     }
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({
             value: e.target.value
         })
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.props.id, this.state);
         this.setState({

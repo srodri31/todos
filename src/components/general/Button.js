@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 class Button extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick = () => {
         let id = this.props.id;
         if (id === null) {
             this.props.onClick();
